@@ -1,18 +1,38 @@
-var express = require('express');
-var router = express.Router();
+/**
+ * @author Chad Chapman
+ */
+const express = require('express');
+const fs = require('node:fs');
+const router = express.Router();
 const url = require('url');
 
 
-/* GET users listing. */
+/* GET api listing. */
 router.get('/', function(req, res, next) {
-  console.log(url.parse(req.url, true));
-  let apiKey = [
-    { key: "myKey" }
-  ];
+  // Parse query section of request.
+  let { query, pathname: path } = url.parse(req.url, true);
+  if(query.type) {
+    console.log(query.type);  
+  }
 
-  res.json({
-    data: apiKey
+  // Read api key from file.
+  fs.readFile('apikey.txt', 'utf8', (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    console.log(data);
+    let apiKey = [
+      { key: {data} }
+    ];
+
+    // Send response back to requestor.
+    res.json({
+      data: apiKey
+    });
   });
+  
 });
 
 module.exports = router;
