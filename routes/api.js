@@ -11,26 +11,33 @@ const url = require('url');
 router.get('/', function(req, res, next) {
   // Parse query section of request.
   let { query, pathname: path } = url.parse(req.url, true);
-  if(query.type) {
-    console.log(query.type);  
-  }
-
+  
   // Read api key from file.
   fs.readFile('apikey.txt', 'utf8', (err, data) => {
     if (err) {
       console.log(err);
-      return res.status(400).send({ message: 'Internal server error.'});
+      return res.status(400).send({ message: err });
     }
+    console.log(query);
 
-    console.log(data);
+    // Set key to object we can send as JSON response.
     let apiKey = [
       { key: {data} }
     ];
 
-    // Send response back to requestor.
-    res.json({
-      data: apiKey
-    });
+    let weatherApiRequestURL = "";
+    if(query.type) {
+      if(query.type == "SIMPLE") {
+        weatherApiRequestURL = `https://api.openweathermap.org/data/2.5/weather?q=${query.city}&appid=${data}`;
+        console.log("Request URL: " + weatherApiRequestURL);
+      }
+
+      // Send response back to requestor.
+      res.json({
+        data: weatherApiRequestURL
+      });
+    }
+
   });
   
 });
