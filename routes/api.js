@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
   fs.readFile('apikey.txt', 'utf8', (err, data) => {
     if (err) {
       console.log(err);
-      return;
+      return res.status(400).send({ message: 'Internal server error.'});
     }
 
     console.log(data);
