@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
       console.log(err);
       return res.status(400).send({ message: err });
     }
-    console.log("\n\n\n\n--------------------------------------------------------------------------------");
+    console.log("\n\n--------------------------------------------------------------------------------");
     console.log("QUERY INFORMATION");
     console.log(query);
 
@@ -42,6 +42,7 @@ router.get('/', function(req, res, next) {
         weatherData = JSON.stringify(badRequestObj);
       }
 
+      console.log("\nQUERY RESPONSE");
       console.log(weatherData);
       
       // Send response back to requestor.
