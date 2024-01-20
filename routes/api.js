@@ -31,10 +31,15 @@ router.get('/', function(req, res, next) {
     if(query.type) {
       if(query.type == "SIMPLE") {
         weatherApiRequestURL = `https://api.openweathermap.org/data/2.5/weather?q=${query.city}&appid=${data}`;
+        weatherData = await getWeaterData(weatherApiRequestURL);
       } else if(query.type == "ONECALL") {
         weatherApiRequestURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${query.lat}&lon=${query.lon}&units=${query.units}&appid=${data}`;
+        weatherData = await getWeaterData(weatherApiRequestURL);
+      } else {
+        let badRequestObj = [{ message: "Invalid request type.  We currently support the free SIMPLE and ONECALL fetch requests."}]
+        weatherData = JSON.stringify(badRequestObj);
       }
-      weatherData = await getWeaterData(weatherApiRequestURL);
+
       console.log(weatherData);
 
       // Send response back to requestor.
