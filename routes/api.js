@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
     if(query.type) {
       if(query.type == "SIMPLE") {
         weatherApiRequestURL = `https://api.openweathermap.org/data/2.5/weather?q=${query.city}&appid=${data}`;
-      } else if(query.type == "COMPLETE") {
+      } else if(query.type == "ONECALL") {
         weatherApiRequestURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${query.lat}&lon=${query.lon}&units=${query.units}&appid=${data}`;
       }
       weatherData = await getWeaterData(weatherApiRequestURL);
