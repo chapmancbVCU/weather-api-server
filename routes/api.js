@@ -31,11 +31,9 @@ router.get('/', function(req, res, next) {
     if(query.type) {
       if(query.type == "SIMPLE") {
         weatherApiRequestURL = `https://api.openweathermap.org/data/2.5/weather?q=${query.city}&appid=${data}`;
-        console.log(weatherData);
       } else if(query.type == "COMPLETE") {
         weatherApiRequestURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${query.lat}&lon=${query.lon}&units=${query.units}&appid=${data}`;
       }
-
       weatherData = await getWeaterData(weatherApiRequestURL);
       console.log(weatherData);
 
@@ -44,7 +42,6 @@ router.get('/', function(req, res, next) {
         data: weatherData
       });
     }
-
   });
 });
 
