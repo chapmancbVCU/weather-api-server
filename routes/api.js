@@ -30,6 +30,8 @@ router.get('/', function(req, res, next) {
 
     let weatherApiRequestURL = "";
     let weatherData;
+
+    // Determine what type of request and handle appropriately.
     if(query.type) {
       if(query.type == "SIMPLE") {
         weatherApiRequestURL = `https://api.openweathermap.org/data/2.5/weather?q=${query.city}&appid=${data}`;
