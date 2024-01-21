@@ -60,3 +60,46 @@ An example for a one call type request is as follows:
         }
     }
 ```
+
+Shown below is an example terminal output we added to assist in any debugging.
+```
+--------------------------------------------------------------------------------
+QUERY INFORMATION
+[Object: null prototype] {
+  type: 'SIMPLE',
+  city: 'Newport News, Virginia'
+}
+
+QUERY RESPONSE
+{
+  coord: { lon: -76.428, lat: 36.9788 },
+  weather: [ { id: 800, main: 'Clear', description: 'clear sky', icon: '01n' } ],
+  base: 'stations',
+  main: {
+    temp: 271.18,
+    feels_like: 264.85,
+    temp_min: 269.81,
+    temp_max: 272.58,
+    pressure: 1023,
+    humidity: 44
+  },
+  visibility: 10000,
+  wind: { speed: 6.69, deg: 310 },
+  clouds: { all: 0 },
+  dt: 1705796412,
+  sys: {
+    type: 2,
+    id: 2011320,
+    country: 'US',
+    sunrise: 1705752968,
+    sunset: 1705789001
+  },
+  timezone: -18000,
+  id: 4776024,
+  name: 'Newport News',
+  cod: 200
+}
+GET /api?type=SIMPLE&&city=Newport%20News,%20Virginia 200 247.061 ms - 487
+[nodemon] restarting due to changes...
+[nodemon] starting `node ./bin/www`
+```
