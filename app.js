@@ -1,3 +1,7 @@
+/**
+ * @file App and middleware setup.
+ * @author Chad Chapman
+ */
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');

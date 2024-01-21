@@ -1,3 +1,7 @@
+/**
+ * @file Auto generated default route.
+ * @author Chad Chapman
+ */
 const express = require('express');
 const router = express.Router();
 
