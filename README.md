@@ -1,8 +1,10 @@
 # Weather API Server
 A server whose purpose is to hide the API key used by the web applications that uses Open Weather Map as a source.
 
+
 ## Overview
 It is always important to protect your API secrets.  Especially, if you spent money acquiring rights to use that API secret.  Currently, this weather api server supports the default free type of request and the one call request.  If you feel the need to add support for additional requests types please let us know.
+
 
 ## Setup Instructions
 1. Clone the repository
@@ -11,11 +13,9 @@ It is always important to protect your API secrets.  Especially, if you spent mo
 4. Paste the key into the new document.
 3. Run the command "npm start"
 
-## Example
+
+## Examples
 Shown below is an example function we created in our weather application for the free fetch request.  In the URL you will see a parameter labeled "type" and given the value "SIMPLE".  This tells the weather api server what type of request to perform against Open Weather Map.  Also note the parameter for hostname.  Currently we support the use of host names and IP addresses.  In our project we use "localhost".
-
-![example!](images/free-api-request-example.png)
-
 ```
 /**
      * Returns the limited weather data using api call based on city name.
@@ -50,7 +50,7 @@ An example for a one call type request is as follows:
     async getWeatherData(latitude: number, longitude: number, hostname: string) {
 
         ...   
-            
+
         try {
             const response = await fetch(`http://${hostname}:3000/api?type=ONECALL&lat=${latitude}&lon=${longitude}&units=${units}`);
             const weatherData = await response.json();
