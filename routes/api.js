@@ -55,8 +55,8 @@ router.get('/', function(req, res, next) {
 
 
 /**
- * Performs the actual fetch request to Open Weather Map using URL assembled 
- * by the API's GET request.
+ * Performs the actual fetch request to Open Weather Map using the URL 
+ * assembled by the API's GET request.
  * @param {string} requestURL The url that is used for the fetch request will 
  * send to Open Weather Map. 
  * @returns A JSON string containing the response from Open Weather Map.
