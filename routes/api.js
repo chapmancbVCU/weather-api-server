@@ -38,7 +38,7 @@ router.get('/', function(req, res, next) {
         weatherApiRequestURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${query.lat}&lon=${query.lon}&units=${query.units}&appid=${data}`;
         weatherData = await getWeatherData(weatherApiRequestURL);
       } else {
-        let badRequestObj = [{ message: "Invalid request type.  We currently support the free SIMPLE and ONECALL fetch requests."}]
+        let badRequestObj = { message: "Invalid request type.  We currently support the free SIMPLE and ONECALL fetch requests."}
         weatherData = JSON.stringify(badRequestObj);
       }
 
