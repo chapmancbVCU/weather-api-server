@@ -1,5 +1,5 @@
 /**
- * @file Auto generated default route.
+ * @file Auto generated default index route.
  * @author Chad Chapman
  */
 const express = require('express');
