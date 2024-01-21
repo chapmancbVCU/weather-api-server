@@ -33,10 +33,10 @@ router.get('/', function(req, res, next) {
     if(query.type) {
       if(query.type == "SIMPLE") {
         weatherApiRequestURL = `https://api.openweathermap.org/data/2.5/weather?q=${query.city}&appid=${data}`;
-        weatherData = await getWeaterData(weatherApiRequestURL);
+        weatherData = await getWeatherData(weatherApiRequestURL);
       } else if(query.type == "ONECALL") {
         weatherApiRequestURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${query.lat}&lon=${query.lon}&units=${query.units}&appid=${data}`;
-        weatherData = await getWeaterData(weatherApiRequestURL);
+        weatherData = await getWeatherData(weatherApiRequestURL);
       } else {
         let badRequestObj = [{ message: "Invalid request type.  We currently support the free SIMPLE and ONECALL fetch requests."}]
         weatherData = JSON.stringify(badRequestObj);
@@ -61,7 +61,7 @@ router.get('/', function(req, res, next) {
  * send to Open Weather Map. 
  * @returns A JSON string containing the response from Open Weather Map.
  */
-async function getWeaterData(requestURL) {
+async function getWeatherData(requestURL) {
   try {
     const response = await fetch(requestURL);
     return await response.json();
