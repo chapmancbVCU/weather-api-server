@@ -9,11 +9,8 @@ It is always important to protect your API secrets.  Especially, if you spent mo
 ## Setup Instructions
 1. Clone the repository
 2. Run the command "npm install"
-3. Create a file in the root of your project with the name ".env"
-4. Create line that looks as the following example with fake key:
-    ```
-    OPEN_WEATHER_MAP_API_KEY=12345abcde
-    ```
+3. Rename the ".env.sample" to ".env"
+4. Replace the text "YOUR_API_KEY_HERE" with your actual API key.
 3. Run the command "npm start"
 
 
