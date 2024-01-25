@@ -10,10 +10,10 @@ It is always important to protect your API secrets.  Especially, if you spent mo
 1. Clone the repository
 2. Run the command "npm install"
 3. Create a file in the root of your project with the name ".env"
-4. Create line that looks as the following:
+4. Create line that looks as the following example with fake key:
     ```
-    OPEN_WEATHER_MAP_API_KEY=<api_key>
-    ```
+    OPEN_WEATHER_MAP_API_KEY=12345abcde
+    ``
 3. Run the command "npm start"
 
 
