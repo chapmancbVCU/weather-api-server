@@ -13,7 +13,7 @@ It is always important to protect your API secrets.  Especially, if you spent mo
 4. Create line that looks as the following example with fake key:
     ```
     OPEN_WEATHER_MAP_API_KEY=12345abcde
-    ``
+    ```
 3. Run the command "npm start"
 
 
