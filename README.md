@@ -9,7 +9,7 @@ It is always important to protect your API secrets.  Especially, if you spent mo
 ## Setup Instructions
 1. Clone the repository
 2. Run the command "npm install"
-3. Rename the the file ".env.sample" to ".env"
+3. Rename the file ".env.sample" to ".env"
 4. Replace the text "YOUR_API_KEY_HERE" with your actual API key.
 3. Run the command "npm start"
 
