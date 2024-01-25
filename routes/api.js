@@ -4,7 +4,6 @@
  */
 require("dotenv").config();
 const express = require('express');
-const fs = require('node:fs');
 const router = express.Router();
 const url = require('url');
 
