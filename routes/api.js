@@ -29,11 +29,11 @@ router.get('/', async function(req, res, next) {
     // Determine what type of request and handle appropriately.
     if(query.type) {
         if(query.type === "SIMPLE") {
-            weatherAPIData = await getWeatherAPIData(`https://api.openweathermap.org/data/2.5/weather?q=${query.city}&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`);
+            weatherAPIData = await getWeatherAPIData(`http://api.openweathermap.org/data/2.5/weather?q=${query.city}&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`);
         } else if(query.type === "ONECALL") {
-            weatherAPIData = await getWeatherAPIData(`https://api.openweathermap.org/data/3.0/onecall?lat=${query.lat}&lon=${query.lon}&units=${query.units}&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`);
+            weatherAPIData = await getWeatherAPIData(`http://api.openweathermap.org/data/3.0/onecall?lat=${query.lat}&lon=${query.lon}&units=${query.units}&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`);
         } else if(query.type === "SEARCH_TERM") {
-            weatherApiRequestURL = `http://api.openweathermap.org/geo/1.0/direct?q=${query.searchTerm}&limit=${process.env.SEARCH_TERM_LIMIT}&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`;
+            weatherAPIData = await getWeatherAPIData(`http://api.openweathermap.org/geo/1.0/direct?q=${query.searchTerm}&limit=${process.env.SEARCH_TERM_LIMIT}&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`);
         } else {
             weatherAPIData = JSON.stringify({ message: "Invalid request type.  We currently support the free SIMPLE, ONECALL, and geolocation API requests from Open Weather Map."});
         }
@@ -59,6 +59,7 @@ router.get('/', async function(req, res, next) {
 async function getWeatherAPIData(requestURL) {
     try {
         const response = await fetch(requestURL);
+        console.log(response)
         return await response.json();
     } catch (error) {
         console.log(error);
