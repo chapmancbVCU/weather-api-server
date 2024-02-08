@@ -31,7 +31,7 @@ router.get('/', async function(req, res, next) {
         if(query.type === "SIMPLE") {
             weatherAPIData = await getWeatherAPIData(`http://api.openweathermap.org/data/2.5/weather?q=${query.city}&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`);
         } else if(query.type === "ONECALL") {
-            weatherAPIData = await getWeatherAPIData(`http://api.openweathermap.org/data/3.0/onecall?lat=${query.lat}&lon=${query.lon}&units=${query.units}&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`);
+            weatherAPIData = await getWeatherAPIData(`http://api.openweathermap.org/data/3.0/onecall?lat=${query.lat}&lon=${query.lon}&unitsmetric&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`);
         } else if(query.type === "SEARCH_TERM") {
             weatherAPIData = await getWeatherAPIData(`http://api.openweathermap.org/geo/1.0/direct?q=${query.searchTerm}&limit=${process.env.SEARCH_TERM_LIMIT}&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`);
         } else {
